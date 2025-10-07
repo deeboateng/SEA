@@ -60,10 +60,10 @@ export const AMENITIES = [
 ] as const;
 
 export const NEARBY_ATTRACTIONS = [
-  { name: 'Labadi Beach', distance: '400m', description: 'Feel the pulse of Accra\'s most iconic shoreline' },
-  { name: 'La Palm Casino', distance: '500m', description: 'Entertainment and dining destination' },
-  { name: 'The Loom – Artists Alliance Gallery', distance: '1.4km', description: 'Contemporary art and culture' },
-  { name: 'Independence Arch', distance: '5.6km', description: 'Historic landmark and symbol of Ghana' },
-  { name: 'Kwame Nkrumah Memorial Park', distance: '6.6km', description: 'Memorial park and mausoleum' },
-  { name: 'Kotoka International Airport', distance: '12km', description: 'International gateway to Ghana' },
+  { name: 'Labadi Beach', distance: '400m', description: 'Feel the pulse of Accra\'s most iconic shoreline', icon: 'waves' },
+  { name: 'La Palm Casino', distance: '500m', description: 'Entertainment and dining destination', icon: 'dice' },
+  { name: 'The Loom – Artists Alliance Gallery', distance: '1.4km', description: 'Contemporary art and culture', icon: 'palette' },
+  { name: 'Independence Arch', distance: '5.6km', description: 'Historic landmark and symbol of Ghana', icon: 'landmark' },
+  { name: 'Kwame Nkrumah Memorial Park', distance: '6.6km', description: 'Memorial park and mausoleum', icon: 'tree' },
+  { name: 'Kotoka International Airport', distance: '12km', description: 'International gateway to Ghana', icon: 'plane' },
 ] as const;

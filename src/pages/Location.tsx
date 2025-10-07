@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { MapPin, Plane, Car, Clock } from 'lucide-react';
+import { MapPin, Plane, Car, Clock, Dice1, Palette, Landmark, Trees, Waves } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import HeroSection from '@/components/HeroSection';
@@ -25,6 +25,15 @@ export default function Location() {
         staggerChildren: 0.2
       }
     }
+  };
+
+  const iconMap = {
+    waves: Waves,
+    dice: Dice1,
+    palette: Palette,
+    landmark: Landmark,
+    tree: Trees,
+    plane: Plane,
   };
 
   return (
@@ -177,12 +186,11 @@ export default function Location() {
                   <Card className="overflow-hidden border-0 shadow-xl">
                     <div className="h-64 bg-gradient-to-br from-[#E5D3B3] to-[#C9A86A]/30 flex items-center justify-center relative">
                       <div className="text-6xl opacity-30">
-                        {index === 0 && '🏖️'}
-                        {index === 1 && '🎲'}
-                        {index === 2 && '🎨'}
-                        {index === 3 && '🏛️'}
-                        {index === 4 && '🌳'}
-                        {index === 5 && '✈️'}
+                        {(() => {
+                          const attraction = NEARBY_ATTRACTIONS[index];
+                          const IconComponent = attraction ? iconMap[attraction.icon as keyof typeof iconMap] : null;
+                          return IconComponent ? <IconComponent className="w-16 h-16 text-[#012E40]" /> : null;
+                        })()}
                       </div>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                     </div>

@@ -73,7 +73,7 @@ export default function HeroSection({
       <div className="absolute inset-0 bg-black/0" />
 
       {/* Content */}
-      <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+      <div className="absolute inset-0 flex items-center justify-center text-center px-4 transform translate-y-1/5">
         <div className="max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto">
           {/* Headline Animation */}
           <motion.h1

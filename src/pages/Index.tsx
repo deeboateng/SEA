@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Wifi, Coffee, Car, Wine, Waves } from 'lucide-react';
+import { ArrowRight, Wifi, Coffee, Car, Wine, Waves, Dice1, Palette, Landmark, Trees, Plane } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import HeroSection from '@/components/HeroSection';
@@ -28,6 +28,11 @@ export default function Index() {
     coffee: Coffee,
     car: Car,
     wine: Wine,
+    dice: Dice1,
+    palette: Palette,
+    landmark: Landmark,
+    tree: Trees,
+    plane: Plane,
   };
 
   return (
@@ -79,8 +84,8 @@ export default function Index() {
               </motion.p>
 
               {/* Amenities Icons */}
-              <motion.div 
-                className="flex flex-wrap gap-6 pt-6"
+              <motion.div
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 pt-6"
                 variants={fadeInUp}
               >
                 {AMENITIES.map((amenity, index) => {
@@ -284,25 +289,32 @@ export default function Index() {
             viewport={{ once: true }}
           >
             {[
-              { name: 'Labadi Beach', distance: '400m', icon: '🏖️' },
-              { name: 'La Palm Casino', distance: '500m', icon: '🎲' },
-              { name: 'Artists Gallery', distance: '1.4km', icon: '🎨' },
-              { name: 'Independence Arch', distance: '5.6km', icon: '🏛️' },
-              { name: 'Nkrumah Park', distance: '6.6km', icon: '🌳' },
-              { name: 'Airport', distance: '12km', icon: '✈️' },
-            ].map((location, index) => (
-              <motion.div
-                key={location.name}
-                className="text-center group"
-                variants={fadeInUp}
-              >
-                <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">
-                  {location.icon}
-                </div>
-                <h3 className="font-medium mb-1">{location.name}</h3>
-                <p className="text-[#C9A86A] text-sm">{location.distance}</p>
-              </motion.div>
-            ))}
+              { name: 'Labadi Beach', distance: '400m', icon: 'waves' },
+              { name: 'La Palm Casino', distance: '500m', icon: 'dice' },
+              { name: 'Artists Gallery', distance: '1.4km', icon: 'palette' },
+              { name: 'Independence Arch', distance: '5.6km', icon: 'landmark' },
+              { name: 'Nkrumah Park', distance: '6.6km', icon: 'tree' },
+              { name: 'Airport', distance: '12km', icon: 'plane' },
+            ].map((location, index) => {
+              const IconComponent = iconMap[location.icon as keyof typeof iconMap];
+              return (
+                <motion.div
+                  key={location.name}
+                  className="flex flex-col items-center group cursor-pointer"
+                  whileHover={{ scale: 1.05 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#C9A86A]/10 flex items-center justify-center mb-2 group-hover:bg-[#C9A86A]/20 transition-colors">
+                    <IconComponent className="w-6 h-6 text-[#C9A86A]" />
+                  </div>
+                  <h3 className="font-medium mb-1 text-white text-center">{location.name}</h3>
+                  <p className="text-[#C9A86A] text-sm text-center">{location.distance}</p>
+                </motion.div>
+              );
+            })}
           </motion.div>
 
           <motion.div
