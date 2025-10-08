@@ -50,7 +50,6 @@ export default function Contact() {
       {/* Hero Section */}
       <HeroSection
         title="We're Here to Welcome You"
-        subtitle="Every question, every detail, every stay begins with a simple hello."
         showCTA={false}
         images={['/assets/images/Open-Plan-Living-Dining-Area-Glass-Table.jpg']}
         height="60vh"

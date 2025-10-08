@@ -50,7 +50,6 @@ export default function BookNow() {
       {/* Hero Section */}
       <HeroSection
         title="Reserve Your Stay at Sea View Haven"
-        subtitle="Experience beachfront comfort and serene design on Accra's coast."
         showCTA={false}
         images={[
           '/assets/images/Balcony-With-Seating-Plants-And-Pool-View.jpg',
